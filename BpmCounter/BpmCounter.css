@@ -1,0 +1,55 @@
+
+
+
+body{
+    background-color: black;
+    color: white;
+    text-align: center;
+        margin-left:auto;
+        margin-right:auto;
+    font-family: "Courier New";
+    align-content: center;
+}
+
+.title{
+  background-color: rgb(76, 76, 76);
+}
+
+.BPM {
+    font-family: "Courier New";
+    font-size: 50px;
+    font-weight: bold;
+    width: 40px;
+    color: goldenrod;
+    margin-top:100px;
+    display: inline;
+}
+
+.BPM .bpm_view {
+    background: #464646;
+    font-size: 40px;
+    min-width: 150px;
+    display:inline-block;
+    border-radius: 10px;
+    padding:5px;
+    margin-left: 40px;
+}
+
+.TAP {
+
+    background: #a66919;
+    color: black;
+    width:300px;
+    height:300px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top:50px;
+}
+
+.TAP:hover {
+    background: #ff9e26;
+}
+
+#tapped {
+    background: #ffef05;
+}

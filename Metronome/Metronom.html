@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--<meta http-equiv="Pragma" content="no-cache" />-->
+    <META HTTP-EQUIV="Expires" CONTENT="0">
+    <META NAME="ROBOTS" CONTENT="none">
+    <meta name="googlebot" content="none">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel=stylesheet type="text/css" href="Metronom.css">
+    <title name="Metronome"></title>
+</head>
+<body>
+    
+    <div class = "title">
+       <h1>Metronome</h1>
+    </div>
+
+
+    <div class="flbox">
+        <div class="app_frame">
+
+            <div class = "bpm_view">
+                <div class ="tick_off" id="tick_indicator_left"></div>
+                <div class="bpm"><span id="bpm_number">120</span>BPM</div>
+                <div class ="tick_off" id="tick_indicator_right"></div>
+            </div>
+
+            <div class = "bpm_steps">
+                <span id="step_minus">-1 BPM</span>
+                <span id="step_plus">+1 BPM</span>
+            </div>
+
+            <div class="bpm_keyboard">
+                <div class="keyboard">
+                    <span>1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
+                    <span>6</span>
+                    <span>7</span>
+                    <span>8</span>
+                    <span>9</span>
+                    <span>0</span>
+                    <span id="dummy_key"></span>
+                    <span>CLR</span>
+                </div>
+            </div>
+
+            <div class="bpm_emphasis">
+                <input type="checkbox" id="EmphasisEnable"> Emphasis
+                <select id="emphasis_value">
+                    <option>2</option>
+                    <option>3</option>
+                    <option selected>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>
+                <div id="measure">/4</div>
+            </div>
+
+            <div class="bpm_setup"><image id="config_icon" src="./settings.png" width="20" height="20"></image></div>
+
+            <div class="bpm_start"><span class="start">Start</span></div>
+        </div>
+    </div>
+
+    <div id="setup_box">
+        <div class="parameter">High Tone Frequency<input id="frequency_high" type="text"/></div>
+        <div class="parameter">Low Tone Frequency<input id="frequency_low" type="text"/></div>
+        <div class="parameter">Tone Duration [ms]<input id="duration" type="text"/></div>
+        <div class="parameter_set"><button id="set_button">Set</button></div>
+    </div>
+
+    <script src="Metronom.js"></script>
+</body>
+</html>

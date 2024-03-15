@@ -1,0 +1,191 @@
+
+
+
+body{
+    background-color: black;
+    color: white;
+    text-align: center;
+        margin-left:auto;
+        margin-right:auto;
+    font-family: "Courier New";
+    align-self: center;
+}
+
+.title{
+  background-color: rgb(76, 76, 76);
+}
+
+.flbox{
+
+    display: flex;
+    justify-content: center;
+    align-items:cente
+}
+
+.app_frame{
+    border:3px;
+    border-style: solid;
+    border-color: #4d4d4d;
+    border-radius: 15px;
+    padding-top:10px;
+    padding-bottom:10px;
+    /*margin-left:auto;
+    margin_right:auto;
+   max-width:400px;*/
+
+}
+
+span {
+    background: goldenrod;
+    color: black;
+    padding: 5px;
+    margin:5px;
+
+    font-size: 20px;
+    font-weight: bold;
+    width: 40px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+.bpm_view{
+    border:3px;
+    border-style: solid;
+    border-color: #4d4d4d;
+    border-radius: 15px;
+    width:250px;
+    margin-left:auto;
+    margin-right: auto;
+
+}
+
+.bpm_view .tick_off{
+    width:30px;
+    height:30px;
+    background: #484848;
+    position: relative;
+    display: inline-block;
+    margin-top:10px;
+}
+
+.bpm_view .tick_on{
+    width:30px;
+    height:30px;
+    background: #ff0000;
+    position: relative;
+    display: inline-block;
+    margin-top:10px;
+}
+
+.bpm_view .bpm{
+    width:100px;
+    height:40px;
+    min-height: 40px;
+    display: inline-block;
+    margin-top:0px;
+    margin-bottom:10px;
+}
+
+.bpm_steps{
+    display: inline-block;
+    margin-top:20px;
+
+}
+.bpm_steps span{
+    display: inline;
+    font-size: 10px;
+    width:40px;
+    height:40px;
+}
+
+.bpm_steps span:hover{
+    background: #eee152;
+}
+
+.bpm_keyboard{
+    background: #484848;
+    width: 300px;
+    margin-top:30px;
+    display:grid;
+    grid-template-columns: auto auto auto;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.bpm_keyboard span:hover{
+    background: #eee152;
+}
+
+.bpm_emphasis{
+    margin-top:20px;
+    width: 300px;
+
+    margin-left:auto;
+    margin-right: auto;
+ }
+
+#measure {
+    background: black;
+    display:inline;
+    font-weight: bold;
+}
+
+.bpm_start{
+    margin-top:30px;
+    width: 200px;
+    margin-left:auto;
+    margin-right: auto;
+}
+
+.bpm_start_running{
+    background: greenyellow;
+}
+
+.bpm_start_stopped{
+    background: goldenrod;
+}
+
+
+.bpm_start span{
+    width:100px;
+}
+
+.bpm_start span:hover{
+    background: #eee152;
+}
+
+.bpm_setup{
+    margin-top:20px;
+}
+
+#setup_box{
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    display: flow;
+    position:absolute;
+    z-index:1;
+
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+    width:200px;
+    height:200px;
+    background: #2c2c2c;
+
+    border:2px;
+    border-radius: 20px;
+    border-color: white;
+    border-style: solid;
+
+    padding-top:10px;
+}
+
+.parameter{
+    margin-bottom: 5px;
+    margin-bottom: 15px;
+}
+

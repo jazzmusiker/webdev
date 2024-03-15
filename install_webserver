@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -it --rm -d -p 8080:80 --name testweb -v ~/Projects/private/testhtml/:/usr/share/nginx/html nginx

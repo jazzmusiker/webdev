@@ -1,0 +1,87 @@
+
+
+
+body{
+    background-color: black;
+    color: white;
+    text-align: center;
+        margin-left:auto;
+        margin-right:auto;
+    font-family: "Courier New";
+}
+
+.title{
+  background-color: rgb(76, 76, 76);
+}
+
+
+
+.tonart span {
+    background: goldenrod;
+    color: black;
+    padding: 5px;
+    margin:5px;
+    font-family: "Courier New";
+    font-size: 20px;
+    font-weight: bold;
+    width: 40px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+
+.tonart span:hover {
+    background: #eee152;
+    color: black;
+}
+
+
+#tonartclicked {
+    background: #f7ff5c;
+    color: rgb(0, 0, 0);
+}
+
+.transponierung .step {
+    background: goldenrod;
+    color: black;
+    padding: 5px;
+    margin:5px;
+    font-family: "Courier New";
+    font-size: 14px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 10px;
+}
+.transponierung {
+    margin-top: 20px;
+    color: goldenrod;
+}
+.transponierung .view_steps {
+    background: #484848;
+    color: goldenrod;
+    padding: 5px;
+    margin:5px;
+    font-family: "Courier New";
+    font-size: 14px;
+    font-weight: bold;
+    padding-top:0px;
+   height: 10px;
+    display: inline-block;
+
+}
+
+.transponierung span:hover {
+    background: #f6e751;
+    color: black;
+}
+
+.skalen {
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right:10px;
+    background: #484848;
+    color: goldenrod;
+    min-height: 50px;
+}
