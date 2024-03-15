@@ -19,7 +19,7 @@ body{
 
     display: flex;
     justify-content: center;
-    align-items:cente
+
 }
 
 .app_frame{
@@ -102,12 +102,12 @@ span {
     background: #eee152;
 }
 
-.bpm_keyboard{
+.keyboard{
     background: #484848;
-    width: 300px;
+    width:350px;
     margin-top:30px;
     display:grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     margin-left:auto;
     margin-right: auto;
 }
