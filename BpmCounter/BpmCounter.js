@@ -1,48 +1,79 @@
 let time_last_click = 0;
+let avg_diff = [0,0,0,0,0];
+let avg_diff_index = 0;
+let avg_num_valid_diff = 0;
+function resetBpmView()
+{
+    const d = new Date();
+    time_last_click=d.getTime();
+    const bpm_view_sel = document.querySelector(".bpm_view");
+    bpm_view_sel.innerText = "---.-";
+    avg_diff = [0,0,0,0,0];
+    avg_diff_index = 0;
+    avg_num_valid_diff = 0;
+}
 
+function validTappDiff(time_difference)
+{
+    avg_diff[avg_diff_index] = time_difference;
+    avg_diff_index++;
+    if (avg_diff_index>4) {
+        avg_diff_index = 0;
+    };
+
+    if (avg_num_valid_diff<5){avg_num_valid_diff++;};
+
+    let sum = 0;
+    console.log("avg_num_valid_diff="+avg_num_valid_diff);
+    console.log("avg_diff_index="+avg_diff_index);
+    for(i=0;i<(avg_num_valid_diff);i++){
+        sum += avg_diff[i];
+        console.log("i="+i+"  avg_diff[i]= "+avg_diff[i]+ "    sum="+sum);
+    }
+
+    bpm = 60000.0 / (sum / avg_num_valid_diff);
+
+    console.log("time difference "+time_difference)
+    console.log("Bpm: "+bpm);
+
+    const bpm_view_sel = document.querySelector(".bpm_view");
+    bpm_view_sel.innerText = (Math.round(bpm*10) / 10);
+}
+function tapped()
+{
+    const d = new Date();
+
+    if (time_last_click==0){
+        resetBpmView();
+    }
+    else{
+        current_time = d.getTime();
+        time_difference = current_time-time_last_click;
+
+        if (time_difference<1500){
+            validTappDiff(time_difference);
+            time_last_click = current_time;
+        }
+        else
+        {
+            resetBpmView();
+        }
+    }
+}
 
 function Init()
 {
     const tap_sel = document.querySelector(".TAP");
     tap_sel.addEventListener('click', function handleCLick(event){
-        console.log("clicked");
     });
 
     tap_sel.addEventListener('mousedown', function handleCLick(event){
-        const d = new Date();
-
-        console.log("mousedown");
         event.target.id="tapped";
-
-        if (time_last_click==0){
-            console.log("first click");
-            time_last_click=d.getTime();
-        }
-        else{
-            current_time = d.getTime();
-            time_difference = current_time-time_last_click;
-
-            if (time_difference<1500){
-                bpm = 60000.0 / time_difference;
-                console.log("time difference "+time_difference)
-                console.log("Bpm: "+bpm);
-                time_last_click = current_time;
-
-                const bpm_view_sel = document.querySelector(".bpm_view");
-                bpm_view_sel.innerText = (Math.round(bpm*10) / 10);
-            }
-            else
-            {
-                const bpm_view_sel = document.querySelector(".bpm_view");
-                bpm_view_sel.innerText = "---.-";
-                time_last_click=d.getTime();
-            }
-        }
+        tapped();
 
     });
 
     tap_sel.addEventListener('mouseup', function handleCLick(event){
-        console.log("mouseup");
         event.target.id="";
     });
 }

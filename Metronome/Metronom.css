@@ -93,7 +93,7 @@ span {
 .bpm_steps{
     display: inline-block;
     margin-top:20px;
-
+    cursor:pointer;
 }
 .bpm_steps span{
     display: inline;
@@ -116,6 +116,10 @@ span {
     margin-right: auto;
 }
 
+.keyboard span{
+    cursor:pointer;
+}
+
 .bpm_keyboard span:hover{
     background: #eee152;
 }
@@ -134,11 +138,15 @@ span {
     font-weight: bold;
 }
 
+#EmphasisEnable{cursor:pointer;}
+#emphasis_value{cursor:pointer;}
+#config_icon{cursor:pointer;}
 .bpm_start{
     margin-top:30px;
     width: 200px;
     margin-left:auto;
     margin-right: auto;
+    cursor:pointer;
 }
 
 .bpm_start_running{
