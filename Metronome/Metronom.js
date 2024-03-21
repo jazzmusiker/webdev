@@ -11,20 +11,13 @@ var numOfSamples = sampleRate * duration / 1000; // Number of samples
 var clickToneHigh = 1800; // Hz
 var clickToneLow = 440; // Hz
 
-
 var audioContextHigh = new (window.AudioContext || window.webkitAudioContext)();
 var audioBufferClickHigh = audioContextHigh.createBuffer(1, numOfSamples, sampleRate);
 var audioBufferDataClickHigh =  audioBufferClickHigh.getChannelData(0);
-//var audioSourceHigh = audioContextHigh.createBufferSource();
-//audioSourceHigh.connect(audioContextHigh.destination);
 
 var audioContextLow= new (window.AudioContext || window.webkitAudioContext)();
 var audioBufferClickLow = audioContextLow.createBuffer(1, numOfSamples, sampleRate);
 var audioBufferDataClickLow =  audioBufferClickLow.getChannelData(0);
-//var audioSourceLow = audioContextLow.createBufferSource();
-//audioSourceLow.connect(audioContextLow.destination);
-
-//var source = audioContext.createBufferSource();
 
 function UpdateClickSignal() {
 
