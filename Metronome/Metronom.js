@@ -11,41 +11,54 @@ var numOfSamples = sampleRate * duration / 1000; // Number of samples
 var clickToneHigh = 1800; // Hz
 var clickToneLow = 440; // Hz
 
-var audioContextHigh = new (window.AudioContext || window.webkitAudioContext)();
-var audioBufferClickHigh = audioContextHigh.createBuffer(1, numOfSamples, sampleRate);
-var audioBufferDataClickHigh =  audioBufferClickHigh.getChannelData(0);
+var audioContext= new (window.AudioContext || window.webkitAudioContext)();
 
-var audioContextLow= new (window.AudioContext || window.webkitAudioContext)();
-var audioBufferClickLow = audioContextLow.createBuffer(1, numOfSamples, sampleRate);
-var audioBufferDataClickLow =  audioBufferClickLow.getChannelData(0);
+var audioBufferClickLow = null;
+var audioBufferDataClickLow= null;
+
+var audioBufferClickHigh = null;
+var audioBufferDataClickHigh = null;
+
+let audioSource = audioContext.createBufferSource();
+
 
 function UpdateClickSignal() {
+    console.log("UpdateClickSignal()");
+
+    audioBufferClickLow = audioContext.createBuffer(1, numOfSamples, sampleRate);
+    audioBufferDataClickLow =  audioBufferClickLow.getChannelData(0);
+
+    audioBufferClickHigh = audioContext.createBuffer(1, numOfSamples, sampleRate);
+    audioBufferDataClickHigh =  audioBufferClickHigh.getChannelData(0);
 
     for (var i = 0; i < numOfSamples; i++) {
         audioBufferDataClickHigh[i] = Math.sin(2 * Math.PI * clickToneHigh * i / sampleRate);
-    };
+    }
 
     for (var i = 0; i < numOfSamples; i++) {
         audioBufferDataClickLow[i] = Math.sin(2 * Math.PI * clickToneLow * i / sampleRate);
-    };
+    }
 
 }
 
 function playLowClickSignal(){
-    audioSourceLow = audioContextLow.createBufferSource();
-    audioSourceLow.buffer = audioBufferClickLow;
-    audioSourceLow.connect(audioContextLow.destination);
-    audioSourceLow.start();
+
+    let audioSource = audioContext.createBufferSource();
+    audioSource.buffer = audioBufferClickLow;
+    audioSource.connect(audioContext.destination);
+
+    audioSource.start();
 }
 
 function playHighClickSignal(){
-    audioSourceHigh = audioContextHigh.createBufferSource();
-    audioSourceHigh.buffer = audioBufferClickHigh;
-    audioSourceHigh.connect(audioContextHigh.destination);
-    audioSourceHigh.start();
-}
 
-UpdateClickSignal();
+    let audioSource = audioContext.createBufferSource();
+    audioSource.buffer = audioBufferClickHigh;
+    audioSource.connect(audioContext.destination);
+
+    audioSource.start();
+
+}
 
 function AddBpmStepHandler()
 {
@@ -55,6 +68,7 @@ function AddBpmStepHandler()
         steps_view = document.querySelector("#bpm_number");
         steps_num = parseInt(steps_view.innerText);
         steps_view.innerText=(steps_num+1);
+
      });
 
      const step_minus_sel = document.querySelector("#step_minus");
@@ -63,6 +77,7 @@ function AddBpmStepHandler()
         steps_view = document.querySelector("#bpm_number");
         steps_num = parseInt(steps_view.innerText);
         steps_view.innerText=(steps_num-1);
+
      });
 }
 
@@ -162,6 +177,7 @@ function start_click(){
     bpm_num = parseInt(steps_view.innerText);
 
     beatlength_ms = 60000 / bpm_num;
+    UpdateClickSignal();
     console.log("beatlength: "+beatlength_ms);
     timer_id = setInterval(click,beatlength_ms);
     console.log("Start click");
