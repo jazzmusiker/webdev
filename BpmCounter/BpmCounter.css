@@ -40,7 +40,7 @@ body{
     background: #a66919;
     color: black;
     width:300px;
-    height:300px;
+    height:200px;
     margin-left:auto;
     margin-right: auto;
     margin-top:50px;
@@ -53,4 +53,25 @@ body{
 
 #tapped {
     background: #ffef05;
+}
+
+.Metronom {
+
+    background: #a66919;
+    color: black;
+    width:120px;
+    height:30px;
+
+    font-size: 16px;
+    font-weight:bold;
+    padding-top: 10px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top:50px;
+    border-radius: 10px;
+    cursor:pointer;
+}
+
+.Metronom:hover{
+    background: #f19a36;
 }

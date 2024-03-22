@@ -24,17 +24,12 @@ function validTappDiff(time_difference)
     if (avg_num_valid_diff<5){avg_num_valid_diff++;};
 
     let sum = 0;
-    console.log("avg_num_valid_diff="+avg_num_valid_diff);
-    console.log("avg_diff_index="+avg_diff_index);
+
     for(i=0;i<(avg_num_valid_diff);i++){
         sum += avg_diff[i];
-        console.log("i="+i+"  avg_diff[i]= "+avg_diff[i]+ "    sum="+sum);
     }
 
     bpm = 60000.0 / (sum / avg_num_valid_diff);
-
-    console.log("time difference "+time_difference)
-    console.log("Bpm: "+bpm);
 
     const bpm_view_sel = document.querySelector(".bpm_view");
     bpm_view_sel.innerText = (Math.round(bpm*10) / 10);
@@ -75,6 +70,19 @@ function Init()
 
     tap_sel.addEventListener('mouseup', function handleCLick(event){
         event.target.id="";
+    });
+
+
+    const metronom_sel = document.querySelector(".Metronom");
+    metronom_sel.addEventListener('click', function handleCLick(event){
+
+        const bpm_view_sel = document.querySelector(".bpm_view");
+
+        let num = parseInt(bpm_view_sel.innerText);
+
+        if (!isNaN(num)){
+          window.location.href="../Metronom/Metronom.html?BPM="+bpm_view_sel.innerText;
+        }
     });
 }
 

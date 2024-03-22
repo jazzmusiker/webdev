@@ -23,7 +23,6 @@ let audioSource = audioContext.createBufferSource();
 
 
 function UpdateClickSignal() {
-    console.log("UpdateClickSignal()");
 
     audioBufferClickLow = audioContext.createBuffer(1, numOfSamples, sampleRate);
     audioBufferDataClickLow =  audioBufferClickLow.getChannelData(0);
@@ -178,15 +177,15 @@ function start_click(){
 
     beatlength_ms = 60000 / bpm_num;
     UpdateClickSignal();
-    console.log("beatlength: "+beatlength_ms);
+
     timer_id = setInterval(click,beatlength_ms);
-    console.log("Start click");
+
 }
 function stop_click(){
     clearInterval(timer_id);
     setLeftTickIndicator(false);
     setRightTickIndicator(false);
-    console.log("Stop click");
+
 }
 
 function AddStartHandler(){
@@ -257,15 +256,28 @@ function InitSetup()
 
 }
 
+function CheckUrlParameters(){
+    const queryString = window.location.search;
+
+    const urlParams = new URLSearchParams(queryString);
+    let BPM = urlParams.get('BPM');
+
+    if (BPM != null) {
+        BPM_view = document.querySelector("#bpm_number");
+        bpm_num = parseInt(BPM);
+        BPM_view.innerText=(bpm_num);
+    }
+}
+
+
 function Init()
 {
     AddBpmStepHandler();
     AddKeyBoardHandler();
     AddStartHandler();
     AddEphasisHandler();
-
     InitSetup();
-
+    CheckUrlParameters();
 
 }
 
